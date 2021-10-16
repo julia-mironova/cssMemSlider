@@ -33,7 +33,6 @@ body {
   p {
     padding-top: 1.5rem;  
     font-size: 1.5rem;
-    letter-spacing: 0.1rem;
     color: var(--text-color);
 }
 
@@ -56,8 +55,7 @@ body {
 	overflow: hidden;
 	position: relative;
 	width: initial;
-    transition: 1s ease-in-out;
- }
+     }
 
 .picture {
     position: absolute;
@@ -68,7 +66,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     transition: 1s ease-in-out;
-    transform: scale(1);
+    transform: scale(0.9);
 	transition: transform ease-in-out 1s, opacity ease-in-out 1s;
 }
 
@@ -91,6 +89,7 @@ body {
   #cat3:checked ~ .text_picture .view:nth-of-type(3),
   #cat4:checked ~ .text_picture .view:nth-of-type(4) {
       opacity: 1;
+      letter-spacing: 0.15rem;
       transition: 1s ease-in-out;
     }
 
