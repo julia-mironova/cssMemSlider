@@ -1,0 +1,219 @@
+/*variables*/
+:root{
+--bacground-color: black;
+--text-color: blanchedalmond;
+--max-container-height: 850px;
+--max-container-height-phone: 430px;
+--color-top-right:#f6ec5a;
+--color-bottom-left:#9dfabe;
+--color-shadow:yellowgreen;
+--input-hover:rgb(165, 226, 107);
+}
+
+.mobile-element {
+    display: none;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+input {
+    display: none;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    background-color:var(--bacground-color);
+   
+} 
+     
+  p {
+    padding-top: 1.5rem;  
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+/*body*/
+
+  .container {
+    height: var(--max-container-height);
+	margin: 5% auto 0;
+	position: relative;
+	width: 80%;
+    
+  }
+
+  .pictures_in_slider {
+    background-image: linear-gradient(to bottom right,  var(--color-top-right), var(--color-bottom-left));
+    opacity: 0.9;
+    box-shadow: 5px 10px 20px var(--color-shadow);
+    border-radius: 20%;
+	height: inherit;
+	overflow: hidden;
+	position: relative;
+	width: initial;
+     }
+
+.picture {
+    position: absolute;
+    height: 90%;
+    width: 60%;
+    border-radius: 10%;
+    margin: 3% 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 1s ease-in-out;
+    transform: scale(0.9);
+	transition: transform ease-in-out 1s, opacity ease-in-out 1s;
+}
+
+#cat1:checked ~ .pictures_in_slider .hz:nth-of-type(1), 
+#cat2:checked ~ .pictures_in_slider .hz:nth-of-type(2),
+#cat3:checked ~ .pictures_in_slider .hz:nth-of-type(3),
+#cat4:checked ~ .pictures_in_slider .hz:nth-of-type(4) {
+    z-index: 5;
+    transition: 1s ease-in-out;
+    transform: scale(1.05);
+  }
+
+  .text {
+      opacity: 0;
+      transition: 1s ease-in-out;
+  }
+  
+  #cat1:checked ~ .text_picture .view:nth-of-type(1),
+  #cat2:checked ~ .text_picture .view:nth-of-type(2),
+  #cat3:checked ~ .text_picture .view:nth-of-type(3),
+  #cat4:checked ~ .text_picture .view:nth-of-type(4) {
+      opacity: 1;
+      letter-spacing: 0.15rem;
+      transition: 1s ease-in-out;
+    }
+
+
+.cat1 {
+    background-image: url(img/cat1.jpg);
+}
+
+.cat2 {
+    background-image: url(img/cat2.jpg);
+      
+}
+.cat3 {
+    background-image: url(img/cat3.jpg);
+}
+
+.cat4 {
+    background-image: url(img/cat4.jpg);
+   
+}
+
+.container .slider-controls-container {
+	position: absolute;
+    left: 70%;
+	margin-top: -30px;
+}
+
+.container label {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+    padding: 10px 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 30%;
+    transition: 1s ease-in-out;
+    }
+
+.container label:after {
+	border: 2px solid var(--text-color);
+	content: " ";
+	display: block;
+	position: absolute;
+	height: 15px;
+	width: 15px;
+	border-radius: 50%;
+    }
+
+.container label:hover { 
+    background: var(--input-hover);
+}
+
+.container label:hover::after, 
+    #cat1:checked ~ .slider-controls-container label:nth-of-type(1),
+    #cat2:checked ~ .slider-controls-container label:nth-of-type(2),
+    #cat3:checked ~ .slider-controls-container label:nth-of-type(3),
+    #cat4:checked ~ .slider-controls-container label:nth-of-type(4) {
+        background: var(--text-color);
+        transition: 1s ease-in-out;
+    }
+
+/*mobile version*/
+@media only screen and (max-width: 720px) {
+
+    .container {
+        height: var(--max-container-height-phone);
+        margin: 1% auto 0;
+        width: 100%;
+ }
+
+    .pictures_in_slider {
+        background-image: none;
+        height: 91%;
+        box-shadow: 3px 5px 5px var(--color-shadow);
+    }
+
+    p {
+        padding-left: 1.5rem;
+        padding-top: 1rem;  
+        font-size: 1rem;
+        letter-spacing: 0.05rem;
+    }
+    
+    p:first-child {
+        padding-top: 0rem;   
+    }
+
+    p:last-child {
+        padding-top: 0rem;   
+    }
+
+
+       .container .slider-controls-container {
+        left: 30%;
+        margin-top: -14rem;
+    }
+
+    .container label {
+        margin-right: 10px;
+        padding: 5px 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+  }
+
+  .container label:after {
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+    }
+
+    .picture {
+        height: 90%;
+        width: 96%;
+        border-radius: 5%;
+        margin: 1% 2%;
+    }
+    .hz {
+        max-width: 310px;
+        max-height: 310px;
+    }
+
+}
+
+
+
